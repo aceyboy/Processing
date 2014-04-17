@@ -1,10 +1,12 @@
 // Background Manager class
-public class BackgroundManager {
+public class BackgroundManager implements Artist {
 	public static final int SPACE = 0;
 	public static final int SEA = 1;
 	public static final int SKY = 2;
 	public static final int CANVAS_WIDTH = 1200;
 	public static final int CANVAS_HEIGHT = 700;
+	public static final int PANEL_PERCENTAGE = 10;
+	public static final int PANEL_COLOR = 120;
 
 	private int bg;
 
@@ -42,4 +44,25 @@ public class BackgroundManager {
 		size[1] = BackgroundManager.CANVAS_HEIGHT;
 		return size;
 	}
+
+	private void drawSidePanel() {
+		int panelWidth = BackgroundManager.CANVAS_WIDTH / BackgroundManager.PANEL_PERCENTAGE;
+		int panelHeight = BackgroundManager.CANVAS_HEIGHT;
+		int panelX = BackgroundManager.CANVAS_WIDTH - panelWidth;
+		int panelY = 0;
+		fill(BackgroundManager.PANEL_COLOR);
+		rect(panelX, panelY, panelWidth, panelHeight);
+		int buttonX = 500;
+		int buttonY = 300;
+		int buttonWidth = 200;
+		int buttonHeight = 100;
+		int buttonUpColor = 100;
+		int buttonDownColor = 50;
+		Button.createButton(buttonX, buttonY, buttonWidth, buttonHeight, buttonUpColor, buttonDownColor, "Taxman", 20);
+	}
+
+	public void draw() {
+		drawSidePanel();
+	}
 }
+
