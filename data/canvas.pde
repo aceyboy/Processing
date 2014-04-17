@@ -1,4 +1,4 @@
-BackgroundManager backgroundManager = new BackgroundManager(BackgroundManager.SPACE);
+BackgroundManager backgroundManager = new BackgroundManager();
 void setup() {
 }
 
